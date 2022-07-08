@@ -1,0 +1,9 @@
+
+{% extends 'core/base.html' %}
+{% block body %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">logout</button>
+</form>
+{% endblock body %}

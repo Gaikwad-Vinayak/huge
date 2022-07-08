@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+{% block body %}
+<div class="bg-light">
+<div class="row">
+    <div class="col-sm-2">
+
+    </div>
+    <div class="col-sm-8">
+        <div class="container">
+            <div class="alert alert-info text-sm-center text-color shadow p-3 mb-5 rounded" role="alert">
+                <span class="text-center fs-5"><h4>Employee Registration Data</h4></span>
+                <a type="submit" class="btn btn-secondary" href="{% url 'home' %}">Back Home</a></button>
+                
+              </div>
+            <div class="">
+              <table class="table shadow p-3 mb-5 bg-light rounded">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>designationld</th>
+                    <th>Date Of Joinign</th>
+                    <th>Salary</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for dt in data %}
+                  <tr>
+                    <td>{{dt.id}}</td>
+                    <td>{{dt.first_name}}</td>
+                    <td>{{dt.last_name}}</td>
+                    <td>{{dt.designationld}}</td>
+                    <td>{{dt.date_of_joining}}</td>
+                    <td>{{dt.salary}}</td>
+                    
+                    <td><a type="submit" class="btn btn-warning" href="{% url 'update' dt.pk %}">Edit</a></button></td>
+                    <td><a type="submit" class="btn btn-danger" href="{% url 'delete' dt.pk %}">Delete</a></button></td>
+                  </tr>
+                  {% endfor %}
+              </table>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-sm-2">
+       
+    </div>
+</div>
+</div>
+{% endblock body %}
+
